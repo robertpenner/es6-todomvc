@@ -1,6 +1,7 @@
 const {resolve} = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const webpackValidator = require('webpack-validator')
 const {getIfUtils, removeEmpty} = require('webpack-config-utils')
 const OfflinePlugin = require('offline-plugin')
@@ -44,6 +45,7 @@ module.exports = env => {
           NODE_ENV: ifProd('"production"', '"development"')
         }
       }),
+      ifProd(new CompressionWebpackPlugin()),
     ]),
   })
 }
