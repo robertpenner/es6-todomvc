@@ -36,7 +36,7 @@
     "build": "webpack --env.prod -p",
     "build:dev": "webpack --env.dev",
     "start": "http-server",
-    "dev": "webpack-dev-server --env.dev",
+    "dev": "webpack-dev-server --env.dev --hot",
     "validate": "npm-run-all --parallel lint build",
     "lint": "eslint .",
     "setup": "npm install && npm run validate"

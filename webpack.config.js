@@ -3,10 +3,10 @@ const webpackValidator = require('webpack-validator')
 const {getIfUtils} = require('webpack-config-utils')
 
 module.exports = env => {
-  const {ifProd, ifNotProd} = getIfUtils(env)
+  const {ifProd, ifNotProd, ifDev} = getIfUtils(env)
   return webpackValidator({
     context: resolve('src'),
-    entry: './app.js',
+    entry: ifDev('./hmr.js', './app.js'),
     output: {
       filename: 'bundle.js',
       path: resolve('dist'),

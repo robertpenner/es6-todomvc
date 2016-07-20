@@ -21,7 +21,8 @@ function Todo(name) {
   this.controller = new app.Controller(this.model, this.view)
 }
 
-function setView() {
+// this is exported for Hot Module Replacement
+export function setView() { // eslint-disable-line import/prefer-default-export
   var todo = new Todo('todos-vanillajs')
   todo.controller.setView(document.location.hash)
 }
